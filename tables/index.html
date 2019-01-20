@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tables</title>
+	<script src="js/tables.js"></script>
+	<link rel="stylesheet" href="css/index.css">
+	<!-- jquery -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
+</head>
+<body>
+
+	<div id="tables">
+		<div class="tab whiteborder" onclick="openTab('first')">Вкладка №1</div>
+		<div class="tab" onclick="openTab('second')">Вкладка №2</div>
+		<div class="tab" onclick="openTab('third')">Вкладка №3</div>
+
+		<div id="first" class="tabContent">Контент 1</div>
+		<div hidden id="second" class="tabContent">Контент 2</div>
+		<div hidden id="third" class="tabContent">Контент 3</div>
+	</div>
+
+</body>
+</html>

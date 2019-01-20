@@ -1,0 +1,36 @@
+body {
+	background-color: aquamarine;
+}
+
+#tables {
+	cursor: pointer;
+	position: relative;
+	max-width: 910px;
+	border: 1px solid #707070;
+	margin: 30px auto 0 auto;
+	color: midnightblue;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+.tab{
+	display: inline-block;
+	padding: 0px;
+	cursor: pointer;
+	position: relative;
+	width: 300px;
+	text-align: center;
+	background-color: chocolate;
+}
+.tab:hover {
+	background-color: coral;
+}
+
+.tabContent{
+	padding: 20px;
+	text-align: center;
+	position: relative;
+}
+
+
