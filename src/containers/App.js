@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 //import logo from '../logo.svg';
-import VueTabs from '../components/VueTabs'
-//import ConstantsTab from '../constants/ConstantsTab'
-import styled from 'styled-components'
+import VueTabs from '../components/VueTabs';
+import VueAcc from '../components/VueAcc';
+//import ConstantsTab from '../constants/ConstantsTab';
+import styled from 'styled-components';
 import '../App.css';
+
 
 const StyleContentDiv = styled.div`
     margin: 0.5em 1em;
     color: blue;`
+
+const accordionTabs = [
+  { titleAcc: 'Acordion', contentAcc: 'contentAccordion contentAccordion contentAccordion contentAccordion contentAccordion'}
+];
 
 const titleAndContentTabs = [
   { titleTab: 'nameTab1', contentTab: 'contentText1' },
@@ -17,24 +23,57 @@ const titleAndContentTabs = [
 
 class Tabs extends Component {
   state = {
+    isActive: false,
+    itemIsActive: null,
+    itemAcc: null,
     itemTab: null,
-  }
+  };
+
+  clickAcc = (state, contentAcc) => () => {
+    this.setState({itemAcc: contentAcc});
+    this.setState((state) => ({
+      isActive: !state.isActive
+    }));
+    console.log(state.isActive);
+  };
+
+  // Это работало
+  // clickAcc = (contentAcc) => () => {
+  //     this.setState({itemAcc: contentAcc});
+  //   };
+
+  //*** Пример с конференции
+  // state = {
+  //     isActive: false,
+  // }
+
+  // handeleClick = () => {
+      // this.setState((state) => ({
+      // isActive: !state.isActive
+    // }));
+//}
+
+
 
   clickTab = (contentTab) => () => {
     this.setState( {itemTab: contentTab})
-  }
+  };
 
   render () {
-    const { titleTab, contentTab, itemTab } = this.state
+    const { state, titleAcc, contentAcc, itemAcc, isActive, itemIsActive, titleTab, contentTab, itemTab } = this.state;
 
     return (
         <div>
+          {accordionTabs.map(( item, idx ) => (
+              <VueAcc key={ idx } { ...item } clickAcc={this.clickAcc} />
+          ))}
 
           {titleAndContentTabs.map(( item, idx ) => (
-              <VueTabs key={ idx } { ...item } clickTab={this.clickTab} />
+            <VueTabs key={ idx } { ...item } clickTab={this.clickTab} />
           ))}
-          <StyleContentDiv>{ itemTab ?  `${ itemTab }` : 'Пожалуйста, нажмите на Tab' }</StyleContentDiv>
 
+          <StyleContentDiv>{ itemAcc }</StyleContentDiv>
+          <StyleContentDiv>{ itemTab ?  `${ itemTab }` : 'Пожалуйста, нажмите на Tab' }</StyleContentDiv>
         </div>
     )
   }
@@ -42,26 +81,10 @@ class Tabs extends Component {
 
 export default Tabs;
 
+//{ (itemAcc && itemIsActive) ?  `${itemAcc}` : '' }
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <p>
-//             Edit <code>src/App.js</code> and save to reload.
-//           </p>
-//           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
-//           >
-//             Learn React
-//           </a>
-//         </header>
-//       </div>
-//     );
-//   }
-// }
+/*{titleAndContentTabs.map(( item, idx ) => (*/
+/*<VueTabs key={ idx } { ...item } clickTab={this.clickTab} />*/
+/*))}*/
+
+{/*<StyleContentDiv>{ itemTab ?  `${ itemTab }` : 'Пожалуйста, нажмите на Tab' }</StyleContentDiv>*/}

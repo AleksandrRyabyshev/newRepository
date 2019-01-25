@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styled from "styled-components";
 
-const StyleButton = styled.button`
+const StyleAcc = styled.button`
   background: transparent;
   border-radius: 3px;
   border: 2px solid palevioletred;
@@ -15,16 +15,15 @@ const StyleButton = styled.button`
 const StyleBlockDiv = styled.div`
     display: inline-block;`
 
-class VueTabs extends React.Component {
+class VueAcc extends React.Component {
     render(){
-        const { titleTab, contentTab, clickTab}= this.props
+        const { titleAcc, contentAcc, isActive, itemIsActive, clickAcc }= this.props
         return (
             <StyleBlockDiv>
-                <StyleButton onClick={clickTab(contentTab)}> { titleTab }</StyleButton>
+                <StyleAcc onClick={clickAcc(contentAcc)}> { titleAcc} </StyleAcc>
             </StyleBlockDiv>
         )
-
     }
 }
 
-export default VueTabs
+export default VueAcc
