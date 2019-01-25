@@ -29,18 +29,10 @@ class Tabs extends Component {
     itemTab: null,
   };
 
-  clickAcc = (state, contentAcc) => () => {
+  clickAcc = (contentAcc) => () => {
     this.setState({itemAcc: contentAcc});
-    this.setState((state) => ({
-      isActive: !state.isActive
-    }));
-    console.log(state.isActive);
+    //console.log(state.isActive);
   };
-
-  // Это работало
-  // clickAcc = (contentAcc) => () => {
-  //     this.setState({itemAcc: contentAcc});
-  //   };
 
   //*** Пример с конференции
   // state = {
@@ -52,8 +44,6 @@ class Tabs extends Component {
       // isActive: !state.isActive
     // }));
 //}
-
-
 
   clickTab = (contentTab) => () => {
     this.setState( {itemTab: contentTab})
@@ -73,6 +63,7 @@ class Tabs extends Component {
           ))}
 
           <StyleContentDiv>{ itemAcc }</StyleContentDiv>
+          {/*{ (itemAcc && itemIsActive) ?  `${itemAcc}` : '' }*/}
           <StyleContentDiv>{ itemTab ?  `${ itemTab }` : 'Пожалуйста, нажмите на Tab' }</StyleContentDiv>
         </div>
     )
@@ -81,10 +72,4 @@ class Tabs extends Component {
 
 export default Tabs;
 
-//{ (itemAcc && itemIsActive) ?  `${itemAcc}` : '' }
 
-/*{titleAndContentTabs.map(( item, idx ) => (*/
-/*<VueTabs key={ idx } { ...item } clickTab={this.clickTab} />*/
-/*))}*/
-
-{/*<StyleContentDiv>{ itemTab ?  `${ itemTab }` : 'Пожалуйста, нажмите на Tab' }</StyleContentDiv>*/}
