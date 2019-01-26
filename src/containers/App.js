@@ -6,7 +6,6 @@ import VueAcc from '../components/VueAcc';
 import styled from 'styled-components';
 import '../App.css';
 
-
 const StyleContentDiv = styled.div`
     margin: 0.5em 1em;
     color: blue;`
@@ -30,20 +29,8 @@ class Tabs extends Component {
   };
 
   clickAcc = (contentAcc) => () => {
-    this.setState({itemAcc: contentAcc});
-    //console.log(state.isActive);
+    this.setState((state) => ({ itemAcc: contentAcc, isActive: !state.isActive }), () => console.log(this.state.isActive))
   };
-
-  //*** Пример с конференции
-  // state = {
-  //     isActive: false,
-  // }
-
-  // handeleClick = () => {
-      // this.setState((state) => ({
-      // isActive: !state.isActive
-    // }));
-//}
 
   clickTab = (contentTab) => () => {
     this.setState( {itemTab: contentTab})
@@ -62,8 +49,7 @@ class Tabs extends Component {
             <VueTabs key={ idx } { ...item } clickTab={this.clickTab} />
           ))}
 
-          <StyleContentDiv>{ itemAcc }</StyleContentDiv>
-          {/*{ (itemAcc && itemIsActive) ?  `${itemAcc}` : '' }*/}
+          {isActive && <StyleContentDiv>{ itemAcc ?  `${itemAcc}` : <div></div>  }</StyleContentDiv>}
           <StyleContentDiv>{ itemTab ?  `${ itemTab }` : 'Пожалуйста, нажмите на Tab' }</StyleContentDiv>
         </div>
     )
@@ -71,5 +57,3 @@ class Tabs extends Component {
 }
 
 export default Tabs;
-
-
