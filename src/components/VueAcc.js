@@ -17,7 +17,7 @@ const StyleBlockDiv = styled.div`
 
 class VueAcc extends React.Component {
     render(){
-        const { titleAcc, contentAcc, isActive, itemIsActive, clickAcc }= this.props
+        const { titleAcc, contentAcc, clickAcc }= this.props
         return (
             <StyleBlockDiv>
                 <StyleAcc onClick={clickAcc(contentAcc)}> { titleAcc} </StyleAcc>

@@ -37,12 +37,12 @@ class Tabs extends Component {
   };
 
   render () {
-    const { state, titleAcc, contentAcc, itemAcc, isActive, itemIsActive, titleTab, contentTab, itemTab } = this.state;
+    const { itemAcc, isActive, itemTab } = this.state;
 
     return (
         <div>
           {accordionTabs.map(( item, idx ) => (
-              <VueAcc key={ idx } { ...item } clickAcc={this.clickAcc} />
+            <VueAcc key={ idx } { ...item } clickAcc={this.clickAcc} />
           ))}
 
           {titleAndContentTabs.map(( item, idx ) => (

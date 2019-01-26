@@ -17,13 +17,12 @@ const StyleBlockDiv = styled.div`
 
 class VueTabs extends React.Component {
     render(){
-        const { titleTab, contentTab, clickTab}= this.props
+        const { titleTab, contentTab, clickTab }= this.props
         return (
             <StyleBlockDiv>
                 <StyleButton onClick={clickTab(contentTab)}> { titleTab }</StyleButton>
             </StyleBlockDiv>
         )
-
     }
 }
 
