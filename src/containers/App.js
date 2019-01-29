@@ -1,56 +1,38 @@
 import React, { Component } from 'react';
-//import logo from '../logo.svg';
-import VueTabs from '../components/VueTabs';
-import VueAcc from '../components/VueAcc';
-//import ConstantsTab from '../constants/ConstantsTab';
-import styled from 'styled-components';
+import renderHTML from 'react-render-html';
+// Components
+import AccordionTab from '../components/Tabs/AccordionTab';
+import SecondTab from '../components/Tabs/SecondTab';
+import ThirdTab from '../components/Tabs/ThirdTab';
+// Constants
+import { titleAndKeyTabs } from '../constants/Tabs/tabs';
+// Css
+import { StyleContentDiv, StyleButton } from '../css/App/appStyle';
 import '../App.css';
-
-const StyleContentDiv = styled.div`
-    margin: 0.5em 1em;
-    color: blue;`
-
-const accordionTabs = [
-  { titleAcc: 'Acordion', contentAcc: 'contentAccordion contentAccordion contentAccordion contentAccordion contentAccordion'}
-];
-
-const titleAndContentTabs = [
-  { titleTab: 'nameTab1', contentTab: 'contentText1' },
-  { titleTab: 'nameTab2', contentTab: 'contentText2' },
-  { titleTab: 'nameTab3', contentTab: 'contentText3' },
-];
 
 class Tabs extends Component {
   state = {
-    isActive: false,
-    itemIsActive: null,
-    itemAcc: null,
     itemTab: null,
   };
 
-  clickAcc = (contentAcc) => () => {
-    this.setState((state) => ({ itemAcc: contentAcc, isActive: !state.isActive }), () => console.log(this.state.isActive))
-  };
-
-  clickTab = (contentTab) => () => {
-    this.setState( {itemTab: contentTab})
+  clickTab = (keyTab) => () => {
+    this.setState( {itemTab: keyTab}, () => console.log(this.state.itemTab))
   };
 
   render () {
-    const { itemAcc, isActive, itemTab } = this.state;
-
     return (
         <div>
-          {accordionTabs.map(( item, idx ) => (
-            <VueAcc key={ idx } { ...item } clickAcc={this.clickAcc} />
-          ))}
+            {titleAndKeyTabs.map(( item, idx ) => (
+                <StyleButton key={ idx } { ...item } onClick={this.clickTab(item.keyTab)}> {item.titleTab} </StyleButton>
+            ))}
 
-          {titleAndContentTabs.map(( item, idx ) => (
-            <VueTabs key={ idx } { ...item } clickTab={this.clickTab} />
-          ))}
+          <StyleContentDiv>
+            { (this.state.itemTab === 'AccordionTab') ?
+                <AccordionTab/> : (this.state.itemTab === 'SecondTab') ?
+                <SecondTab/> : (this.state.itemTab === 'ThirdTab') ?
+                <ThirdTab/> : <AccordionTab/> }
+          </StyleContentDiv>
 
-          {isActive && <StyleContentDiv>{ itemAcc ?  `${itemAcc}` : <div></div>  }</StyleContentDiv>}
-          <StyleContentDiv>{ itemTab ?  `${ itemTab }` : 'Пожалуйста, нажмите на Tab' }</StyleContentDiv>
         </div>
     )
   }
