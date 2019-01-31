@@ -12,26 +12,39 @@ import '../App.css';
 
 class Tabs extends Component {
   state = {
-    itemTab: null,
+      itemTab: null,
+      isActive: false,
   };
 
   clickTab = (keyTab) => () => {
-    this.setState( {itemTab: keyTab}, () => console.log(this.state.itemTab))
+        this.setState( (state) => ({itemTab: keyTab, isActive: !state.isActive}), () => console.log(this.state.itemTab))
   };
 
+  // clickTab = (keyTab) => () => {
+  //     this.setState( {itemTab: keyTab}, () => console.log(this.state.itemTab))
+  // };
+
   render () {
+      const { itemTab, isActive } = this.state;
     return (
         <div>
             {titleAndKeyTabs.map(( item, idx ) => (
                 <StyleButton key={ idx } { ...item } onClick={this.clickTab(item.keyTab)}> {item.titleTab} </StyleButton>
             ))}
 
-          <StyleContentDiv>
-            { (this.state.itemTab === 'AccordionTab') ?
-                <AccordionTab/> : (this.state.itemTab === 'SecondTab') ?
-                <SecondTab/> : (this.state.itemTab === 'ThirdTab') ?
-                <ThirdTab/> : <AccordionTab/> }
-          </StyleContentDiv>
+            <StyleContentDiv>
+                { isActive &&  (itemTab === 'AccordionTab') ? <AccordionTab/>
+                : (itemTab === 'SecondTab') ? <SecondTab/>
+                : (itemTab === 'ThirdTab') ? <ThirdTab/>
+                : <AccordionTab/> }
+            </StyleContentDiv>
+
+            {/*<StyleContentDiv>*/}
+                {/*{ isActive && <AccordionTab key={itemTab}/> }*/}
+                {/*{ isActive && <SecondTab key={itemTab}/> }*/}
+                {/*{ isActive && <ThirdTab key={itemTab}/> }*/}
+            {/*</StyleContentDiv>*/}
+
 
         </div>
     )
@@ -39,3 +52,6 @@ class Tabs extends Component {
 }
 
 export default Tabs;
+
+
+
