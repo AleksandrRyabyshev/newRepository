@@ -29,7 +29,7 @@ class Tabs extends Component {
     return (
         <div>
             {titleAndKeyTabs.map(( item, idx ) => (
-                <StyleButton key={ idx } { ...item } onClick={this.clickTab(item.keyTab)}> {item.titleTab} </StyleButton>
+                <StyleButton key={ idx } { ...item }  onClick={this.clickTab(item.keyTab)}> {item.titleTab} </StyleButton>
             ))}
 
             <StyleContentDiv>
