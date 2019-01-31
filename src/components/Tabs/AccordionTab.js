@@ -50,13 +50,13 @@ class AccordionTab extends React.Component {
         const ThirdAccTab = this.state.ThirdAccTabActive && this.state.ThirdAccTab;
         return (
             <div>
-                <StyleAccordionButton onClick={ this.clickFirstAccTab() }> Accordion#1 </StyleAccordionButton>
+                <StyleAccordionButton onClick={this.clickFirstAccTab()}> Accordion#1 </StyleAccordionButton>
                 <div> { FirstAccTab } </div>
 
-                <StyleAccordionButton onClick={ this.clickSecondAccTab()}> Accordion#2 </StyleAccordionButton>
+                <StyleAccordionButton onClick={this.clickSecondAccTab()}> Accordion#2 </StyleAccordionButton>
                 <div> { SecondAccTab } </div>
 
-                <StyleAccordionButton onClick={ this.clickThirdAccTab() }> Accordion#3 </StyleAccordionButton>
+                <StyleAccordionButton onClick={this.clickThirdAccTab()}> Accordion#3 </StyleAccordionButton>
                 <div> { ThirdAccTab } </div>
 
 
