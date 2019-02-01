@@ -28,8 +28,8 @@ class Tabs extends Component {
                 ))}
 
                 <StyleContentDiv>
-                    {titleAndKeyTabs.map(idx => (
-                        <div key={idx.keyTab}> { isActive === idx.keyTab && idx.contentTab } </div>
+                    {titleAndKeyTabs.map(item => (
+                        <div key={item.keyTab} { ...item }> { isActive === item.keyTab && item.contentTab } </div>
                     ))}
                 </StyleContentDiv>
             </div>

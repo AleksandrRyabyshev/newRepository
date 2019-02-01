@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const SecondTabTable = styled.table`
+  margin-top: 30px;  
   width: 475px;
   border: 1px solid black;
   background-color: #ADD8E6;
