@@ -6,12 +6,11 @@ export const StyleContentDiv = styled.div`
 
 export const StyleButton = styled.button`
   min-width: 10em;
-  background: transparent;
   border-radius: 3px;
   border: 2px solid palevioletred;
   color: palevioletred;
   margin: 2em 2em 0em 1em;
   padding: 0.25em 1em;
+  background: #DCDCDC;
    &:hover {
-    background: #DCDCDC;
-  }`
+    background: transparent;}`
