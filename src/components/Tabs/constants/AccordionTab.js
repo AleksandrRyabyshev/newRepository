@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 //Constants/Accordions
-import FirstAccTab from "../../components/Accordion/FirstAccTab";
-import SecondAccTab from "../../components/Accordion/SecondAccTab";
-import ThirdAccTab from "../../components/Accordion/ThirdAccTab";
+import FirstAccTab from "../../Accordion/FirstAccTab";
+import SecondAccTab from "../../Accordion/SecondAccTab";
+import ThirdAccTab from "../../Accordion/ThirdAccTab";
+
 //Css
-import  { StyleAccordionButton } from '../../css/Accordion/accordion.js';
+import  { StyleAccordionButton } from '../../../css/Accordion/accordion.js';
 
 class AccordionTab extends React.Component {
     state ={

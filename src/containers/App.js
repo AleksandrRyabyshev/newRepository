@@ -1,37 +1,32 @@
 import React, { Component } from 'react';
 import renderHTML from 'react-render-html';
 // Components
-import AccordionTab from '../components/Tabs/AccordionTab';
-//import SecondTab from '../components/Tabs/SecondTab';
-//import ThirdTab from '../components/Tabs/ThirdTab';
+import VueMenuTabs from '../components/MenuTabs/VueMenuTabs';
+import Tab from '../components/Tabs/Tab';
+import AccordionTab from '../components/Tabs/constants/AccordionTab';
 // Constants
 import { titleAndKeyTabs } from '../constants/Tabs/tabs';
 // Css
-import { StyleContentDiv, StyleButton } from '../css/App/appStyle';
 import '../App.css';
 
 class Tabs extends Component {
   state = {
-      isActive: 'AccordionTab',
+      itemContent: <AccordionTab/>,
   };
 
-    clickTab = (keyTab) => () => {
-        this.setState({isActive: keyTab});
-    }
+    clickTab = ( contentTab) => () => {
+        this.setState({ itemContent: contentTab});
+    };
 
   render () {
-      const { isActive } = this.state;
+      const {  itemContent } = this.state;
       return (
             <div>
                 {titleAndKeyTabs.map(( item, idx ) => (
-                    <StyleButton key={ idx } { ...item }  onClick={this.clickTab(item.keyTab)}> {item.titleTab} </StyleButton>
+                    <VueMenuTabs key={ idx } { ...item } clickTab={this.clickTab} />
                 ))}
 
-                <StyleContentDiv>
-                    {titleAndKeyTabs.map(item => (
-                        <div key={item.keyTab} { ...item }> { isActive === item.keyTab && item.contentTab } </div>
-                    ))}
-                </StyleContentDiv>
+                <Tab items={ itemContent }/>
             </div>
       )
   }

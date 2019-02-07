@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {AccH3} from '../../css/Tabs/ThirdTab/thirdTab';
+import {AccH3} from '../../../css/Tabs/ThirdTab/thirdTab';
 
 class ThirdTab extends React.Component {
     render(){

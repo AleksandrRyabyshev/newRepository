@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { SecondTabTable, SecondTabTableTr, SecondTabTableTd, SecondTabTableAllTd} from '../../css/Tabs/SecondTab/secondTab.js';
+import { SecondTabTable, SecondTabTableTr, SecondTabTableTd, SecondTabTableAllTd} from '../../../css/Tabs/SecondTab/secondTab.js';
 
 class SecondTab extends React.Component {
     render(){

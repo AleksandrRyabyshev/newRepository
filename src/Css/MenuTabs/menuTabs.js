@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const StyleContentDiv = styled.div`
-    margin: 0.5em 1em;
-    color: blue;`
+export const StyleMenuDiv = styled.div`
+    display: inline-block;    
+    color: blue;`//margin: 0.5em 1em;
 
-export const StyleButton = styled.button`
+export const StyleMenuButton = styled.button`
   min-width: 10em;
   border-radius: 3px;
   border: 2px solid palevioletred;
